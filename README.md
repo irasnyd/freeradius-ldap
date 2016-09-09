@@ -23,6 +23,8 @@ Environment Variables
 - `LDAP_RADIUS_ACCESS_GROUP` - The LDAP group which users must belong to in order to have RADIUS access (optional) (default: "")
 - `RADIUS_CLIENT_CREDENTIALS` - The Freeradius server client credentials (comma separated "hostname:password" pairs, default: "")
 
+- `RADIUSD_ARGS` - Arguments to pass to radiusd (default: "-f -l stdout")
+
 Example Docker Compose Configuration
 ====================================
 

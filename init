@@ -13,6 +13,9 @@ LDAP_CLIENT_BASEDN="${LDAP_CLIENT_BASEDN:-ou=Clients,dc=example,dc=com}"
 LDAP_RADIUS_ACCESS_GROUP="${LDAP_RADIUS_ACCESS_GROUP:-}"
 RADIUS_CLIENT_CREDENTIALS="${RADIUS_CLIENT_CREDENTIALS:-}"
 
+# to turn on debugging, use "-x -f -l stdout"
+RADIUSD_ARGS="${RADIUSD_ARGS:--f -l stdout}"
+
 ldap_subst() {
     sed -i -e "s/${1}/${2}/g" /etc/raddb/mods-available/ldap
 }
@@ -89,4 +92,4 @@ EOF
 done
 
 # run radiusd
-exec /usr/bin/tini -- /usr/sbin/radiusd -x -f -l stdout
+exec /usr/bin/tini -- /usr/sbin/radiusd $RADIUSD_ARGS
