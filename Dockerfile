@@ -1,5 +1,4 @@
 FROM centos:7
-MAINTAINER Ira W. Snyder <isnyder@lcogt.net>
 
 ENTRYPOINT [ "/init" ]
 
@@ -15,7 +14,7 @@ RUN yum -y install freeradius-ldap \
         && yum -y clean all
 
 # Install tini init
-ENV TINI_VERSION v0.10.0
+ENV TINI_VERSION v0.19.0
 RUN curl -L https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini > /usr/bin/tini \
         && chmod +x /usr/bin/tini
 
